@@ -11,7 +11,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableEurekaClient
 @EnableFeignClients
 @EnableCircuitBreaker
-@EnableSwagger2
 public class SpringcloudConsumerFeignHystrixApplication {
 
 	public static void main(String[] args) {

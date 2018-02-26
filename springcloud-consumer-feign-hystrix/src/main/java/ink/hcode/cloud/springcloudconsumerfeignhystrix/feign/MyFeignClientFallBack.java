@@ -1,5 +1,6 @@
 package ink.hcode.cloud.springcloudconsumerfeignhystrix.feign;
 
+import feign.hystrix.FallbackFactory;
 import ink.hcode.cloud.springcloudconsumerfeignhystrix.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +12,20 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class MyFeignClientFallBack implements MyFeignClient {
-    @Override
-    public User getUser(String id) {
-        return null;
-    }
+public class MyFeignClientFallBack implements FallbackFactory<MyFeignClient> {
 
     @Override
-    public User postUser(User user) {
-        return null;
+    public MyFeignClient create(Throwable throwable) {
+        return new MyFeignClient() {
+            @Override
+            public User getUser(String id) {
+                return null;
+            }
+
+            @Override
+            public User postUser(User user) {
+                return null;
+            }
+        };
     }
 }
