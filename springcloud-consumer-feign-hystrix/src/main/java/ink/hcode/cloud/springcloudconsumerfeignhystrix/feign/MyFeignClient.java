@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @date 2018/2/24
  * @description
  */
-@FeignClient(name = "springcloud-provider", fallback = MyFeignClientFallBack.class)
+@FeignClient(name = "springcloud-provider", fallbackFactory = MyFeignClientFallBack.class)
 public interface MyFeignClient {
 
     @GetMapping("/user/{id}")
